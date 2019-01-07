@@ -1,0 +1,38 @@
+1、首先去官网下载最新的MySQL包，一般用社区版，因为是免费的；
+
+2、下面是zip的安装方式；
+
+3、首先创建my.ini文件，内容（注意basedir为解压路径）：
+[mysql]
+# 设置mysql客户端默认字符集
+default-character-set=utf8
+ 
+[mysqld]
+# 设置3306端口
+port = 3306
+# 设置mysql的安装目录
+basedir=G:\\MySQL\\mysql-8.0.13-winx64
+# 设置 mysql数据库的数据的存放目录，MySQL 8+ 不需要以下配置，系统自己生成即可，否则有可能报错
+# datadir=C:\\web\\sqldata
+# 允许最大连接数
+max_connections=20
+# 服务端使用的字符集默认为8比特编码的latin1字符集
+character-set-server=utf8
+# 创建新表时将使用的默认存储引擎
+default-storage-engine=INNODB
+
+4、进入bin目录；
+
+5、以管理员身份运行cmd窗口；
+
+6、执行mysqld --initialize --console，会得到一个初始化密码root@localhost: APWCY5ws&hjQ
+
+7、执行mysqld --install（如果成功，会提示Services Successfully installed）；
+
+8、执行net start mysql 启动mysql服务；
+
+9、可以登录mysql了，输入mysql -u root -p；然后会提示输入密码，此时输入前边初始化的密码就好了；
+
+10、修改初始化密码；先用初始话密码登录；然后
+	旧版本（5.7.6以前）输入SET PASSWORD = PASSWORD('新密码');
+	新版本（5.7.6以后）输入ALTER USER USER() IDENTIFIED BY '新密码';
